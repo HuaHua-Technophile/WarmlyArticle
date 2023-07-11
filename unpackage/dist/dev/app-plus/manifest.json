@@ -59,9 +59,14 @@
           "<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>",
           "<uses-feature android:name=\"android.hardware.camera\"/>",
           "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"
+        ],
+        "abiFilters": [
+          "arm64-v8a"
         ]
       },
-      "apple": {},
+      "apple": {
+        "idfa": false
+      },
       "plugins": {
         "audio": {
           "mp3": {
@@ -73,7 +78,7 @@
     "statusbar": {
       "immersed": "supportedDevice",
       "style": "dark",
-      "background": "#F8F8F8"
+      "background": "#000000"
     },
     "uniStatistics": {
       "enable": false
