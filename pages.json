@@ -8,5 +8,8 @@
   "globalStyle": {
     "navigationStyle": "custom"
   },
-  "uniIdRouter": {}
+  "uniIdRouter": {},
+  "easycom": {
+    "autoscan": true
+  }
 }

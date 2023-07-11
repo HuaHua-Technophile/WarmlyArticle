@@ -38,10 +38,13 @@
           "<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>",
           "<uses-feature android:name=\"android.hardware.camera\"/>",
           "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"
-        ]
+        ],
+        "abiFilters": ["arm64-v8a"]
       },
       /* ios打包配置 */
-      "ios": {},
+      "ios": {
+        "idfa": false
+      },
       /* SDK配置 */
       "sdkConfigs": {}
     }
@@ -65,7 +68,11 @@
     "usingComponents": true
   },
   "mp-toutiao": {
-    "usingComponents": true
+    "usingComponents": true,
+    "setting": {
+      "minified": true,
+      "postcss": true
+    }
   },
   "uniStatistics": {
     "enable": false
@@ -77,6 +84,12 @@
       "treeShaking": {
         "enable": true
       }
+    }
+  },
+  "mp-qq": {
+    "setting": {
+      "minified": true,
+      "postcss": true
     }
   }
 }
