@@ -10,4 +10,20 @@
 //包括所有的Bootstrap
 //这里包含任何默认变量重写(尽管函数不可用)
 //然后在此处添加其他自定义代码
+
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
+a{
+  border-radius: 999px;
+}
+@keyframes ripple {
+    0% {
+      transform: translate(-50%,50%) scale(0);
+    }
+    90% {
+      transform: translate(-50%,50%) scale(4);
+    }
+    100% {
+      transform: translate(-50%,50%) scale(4);
+      opacity: 0;
+    }
+  }

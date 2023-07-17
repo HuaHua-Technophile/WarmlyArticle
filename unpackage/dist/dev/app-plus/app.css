@@ -12262,6 +12262,9 @@ uni-textarea.form-control-lg {
     display: none !important;
   }
 }
+.ripple {
+  background: skyblue !important;
+}
 /**
  * 这里是uni-app内置的常用样式变量
  *

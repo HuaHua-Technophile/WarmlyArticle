@@ -1,0 +1,12 @@
+
+.rippleClass[data-v-e9345f2e] {
+    animation: ripple-e9345f2e 1s both;
+}
+@keyframes ripple-e9345f2e {
+from {
+      background: red !important;
+}
+to {
+      background: blue !important;
+}
+}
