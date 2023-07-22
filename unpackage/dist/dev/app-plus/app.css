@@ -12262,8 +12262,20 @@ uni-textarea.form-control-lg {
     display: none !important;
   }
 }
-.ripple {
-  background: skyblue !important;
+a {
+  border-radius: 999px;
+}
+@keyframes ripple {
+  0% {
+    transform: translate(-50%, 50%) scale(0);
+  }
+  90% {
+    transform: translate(-50%, 50%) scale(4);
+  }
+  100% {
+    transform: translate(-50%, 50%) scale(4);
+    opacity: 0;
+  }
 }
 /**
  * 这里是uni-app内置的常用样式变量

@@ -31,6 +31,69 @@ if (uni.restoreGlobal) {
 }
 (function(vue, shared) {
   "use strict";
+  const _export_sfc = (sfc, props) => {
+    const target = sfc.__vccOpts || sfc;
+    for (const [key, val] of props) {
+      target[key] = val;
+    }
+    return target;
+  };
+  const _sfc_main$4 = {
+    __name: "nav-bar",
+    setup(__props) {
+      let addRipple = (e) => {
+        let ripple = document.createElement("view");
+        ripple.setAttribute(
+          "style",
+          `height:45px;width:45px;border-radius:999px;
+      background:radial-gradient(circle at 50% 50%,transparent,rgba(var(--bs-body-color-rgb),0.4));
+      position:absolute;
+      bottom:calc(100vh - ${e.detail.y}px);
+      left:calc(${e.detail.x}px - ${32.08 * e.currentTarget.dataset.id}vw);
+      animation: ripple 2s both !important;`
+        );
+        ripple.classList.add("ripple");
+        let target = document.getElementById(`navBar${e.currentTarget.dataset.id}`);
+        target.appendChild(ripple);
+        setTimeout(() => {
+          target.removeChild(ripple);
+        }, 2e3);
+      };
+      return (_ctx, _cache) => {
+        return vue.openBlock(), vue.createElementBlock("view", {
+          id: "navBar",
+          class: "d-flex justify-content-between position-fixed bottom-0 vw-100 bg-dark bg-opacity-10",
+          style: { "height": "50px", "color": "#7c817b !important" }
+        }, [
+          vue.createElementVNode("view", {
+            class: "h-100 overflow-hidden d-flex justify-content-center align-items-center position-relative",
+            id: "navBar0",
+            "data-id": "0",
+            style: { "width": "36%" },
+            onClick: _cache[0] || (_cache[0] = (...args) => vue.unref(addRipple) && vue.unref(addRipple)(...args))
+          }, " 首页 "),
+          vue.createElementVNode("view", {
+            class: "h-100 overflow-hidden d-flex justify-content-center align-items-center position-absolute top-50 start-50 translate-middle",
+            style: { "width": "36%" },
+            id: "navBar1",
+            "data-id": "1",
+            onClick: _cache[1] || (_cache[1] = (...args) => vue.unref(addRipple) && vue.unref(addRipple)(...args))
+          }, " 探索 "),
+          vue.createElementVNode("view", {
+            class: "h-100 overflow-hidden d-flex justify-content-center align-items-center position-relative",
+            style: { "width": "36%" },
+            id: "navBar2",
+            "data-id": "2",
+            onClick: _cache[2] || (_cache[2] = (...args) => vue.unref(addRipple) && vue.unref(addRipple)(...args))
+          }, " 我 ")
+        ]);
+      };
+    }
+  };
+  const __easycom_0 = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["__file", "C:/Study/WarmlyArticle/components/nav-bar/nav-bar.vue"]]);
+  const ON_SHOW = "onShow";
+  const ON_HIDE = "onHide";
+  const ON_LAUNCH = "onLaunch";
   function formatAppLog(type, filename, ...args) {
     if (uni.__log__) {
       uni.__log__(type, filename, ...args);
@@ -41,67 +104,12 @@ if (uni.restoreGlobal) {
   function resolveEasycom(component, easycom2) {
     return shared.isString(component) ? easycom2 : component;
   }
-  const _export_sfc = (sfc, props) => {
-    const target = sfc.__vccOpts || sfc;
-    for (const [key, val] of props) {
-      target[key] = val;
-    }
-    return target;
+  const createHook = (lifecycle) => (hook, target = vue.getCurrentInstance()) => {
+    !vue.isInSSRComponentSetup && vue.injectHook(lifecycle, hook, target);
   };
-  const _sfc_main$2 = {
-    __name: "nav-bar",
-    setup(__props) {
-      let addRipple = (e) => {
-        formatAppLog("log", "at components/nav-bar/nav-bar.vue:22", "点击了", e);
-        let ripple = document.createElement("view");
-        ripple.setAttribute(
-          "style",
-          `width:30px;height:100%;background:red;position:absolute;
-      bottom:calc(100vh - ${e.detail.y}px);
-      left:calc(${e.detail.x}px - ${32.08 * e.currentTarget.dataset.id}vw);
-      animation: ripple 1s both;
-      @keyframes ripple {from {background: red !important;} to {background: blue !important;}}
-      `
-        );
-        ripple.classList.add("rippleClass");
-        let target = document.getElementById(`navBar${e.currentTarget.dataset.id}`);
-        target.appendChild(ripple);
-        setTimeout(() => {
-          target.removeChild(ripple);
-        }, 1e4);
-      };
-      return (_ctx, _cache) => {
-        return vue.openBlock(), vue.createElementBlock("view", {
-          id: "navBar",
-          class: "d-flex justify-content-between position-fixed bottom-0 vw-100 bg-dark bg-opacity-10",
-          style: { "height": "50px", "color": "#7c817b !important" }
-        }, [
-          vue.createElementVNode("view", {
-            class: "h-100 overflow-hidden d-flex justify-content-center align-items-center position-relative border",
-            id: "navBar0",
-            "data-id": "0",
-            style: { "width": "36%" },
-            onClick: _cache[0] || (_cache[0] = (...args) => vue.unref(addRipple) && vue.unref(addRipple)(...args))
-          }, " 首页 "),
-          vue.createElementVNode("view", {
-            class: "h-100 overflow-hidden d-flex justify-content-center align-items-center position-absolute top-50 start-50 translate-middle border",
-            style: { "width": "36%" },
-            id: "navBar1",
-            "data-id": "1",
-            onClick: _cache[1] || (_cache[1] = (...args) => vue.unref(addRipple) && vue.unref(addRipple)(...args))
-          }, " 探索 "),
-          vue.createElementVNode("view", {
-            class: "h-100 overflow-hidden d-flex justify-content-center align-items-center position-relative border",
-            style: { "width": "36%" },
-            id: "navBar2",
-            "data-id": "2",
-            onClick: _cache[2] || (_cache[2] = (...args) => vue.unref(addRipple) && vue.unref(addRipple)(...args))
-          }, " 我 ")
-        ]);
-      };
-    }
-  };
-  const __easycom_0 = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-e9345f2e"], ["__file", "C:/Study/WarmlyArticle/components/nav-bar/nav-bar.vue"]]);
+  const onShow = /* @__PURE__ */ createHook(ON_SHOW);
+  const onHide = /* @__PURE__ */ createHook(ON_HIDE);
+  const onLaunch = /* @__PURE__ */ createHook(ON_LAUNCH);
   var isVue2 = false;
   function set(target, key, val) {
     if (Array.isArray(target)) {
@@ -1728,7 +1736,7 @@ This will fail in production if not fixed.`);
       changeTheme
     };
   });
-  const _sfc_main$1 = {
+  const _sfc_main$3 = {
     __name: "index",
     setup(__props) {
       let store = useThemeStore();
@@ -1763,17 +1771,42 @@ This will fail in production if not fixed.`);
       };
     }
   };
-  const PagesIndexIndex = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__file", "C:/Study/WarmlyArticle/pages/index/index.vue"]]);
+  const PagesIndexIndex = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__file", "C:/Study/WarmlyArticle/pages/index/index.vue"]]);
+  const _sfc_main$2 = {
+    data() {
+      return {};
+    }
+  };
+  function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
+    return vue.openBlock(), vue.createElementBlock("view");
+  }
+  const PagesRecommendRecommend = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["render", _sfc_render$1], ["__file", "C:/Study/WarmlyArticle/pages/recommend/recommend.vue"]]);
+  const _sfc_main$1 = {
+    data() {
+      return {};
+    }
+  };
+  function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
+    return vue.openBlock(), vue.createElementBlock("view");
+  }
+  const PagesMineMine = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["render", _sfc_render], ["__file", "C:/Study/WarmlyArticle/pages/mine/mine.vue"]]);
   __definePage("pages/index/index", PagesIndexIndex);
+  __definePage("pages/recommend/recommend", PagesRecommendRecommend);
+  __definePage("pages/mine/mine", PagesMineMine);
   const _sfc_main = {
-    onLaunch: function() {
-      formatAppLog("log", "at App.vue:4", "App Launch");
-    },
-    onShow: function() {
-      formatAppLog("log", "at App.vue:7", "App Show");
-    },
-    onHide: function() {
-      formatAppLog("log", "at App.vue:10", "App Hide");
+    __name: "App",
+    setup(__props) {
+      onLaunch(() => {
+        formatAppLog("log", "at App.vue:8", "app launch");
+      });
+      onHide(() => {
+        formatAppLog("log", "at App.vue:11", "app Hide");
+      });
+      onShow(() => {
+        formatAppLog("log", "at App.vue:14", "app Show");
+      });
+      return () => {
+      };
     }
   };
   const App = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "C:/Study/WarmlyArticle/App.vue"]]);
@@ -2065,6 +2098,20 @@ This will fail in production if not fixed.`);
     {
       path: "pages/index/index",
       style: {}
+    },
+    {
+      path: "pages/recommend/recommend",
+      style: {
+        navigationBarTitleText: "",
+        enablePullDownRefresh: false
+      }
+    },
+    {
+      path: "pages/mine/mine",
+      style: {
+        navigationBarTitleText: "",
+        enablePullDownRefresh: false
+      }
     }
   ];
   const globalStyle = {
@@ -2368,7 +2415,7 @@ This will fail in production if not fixed.`);
   function S(e) {
     return e && "string" == typeof e ? JSON.parse(e) : e;
   }
-  const b = true, k = "app", T = S([]), P = k, A = S('{\n    "address": [\n        "127.0.0.1",\n        "192.168.36.39",\n        "172.29.144.1"\n    ],\n    "debugPort": 9000,\n    "initialLaunchType": "local",\n    "servePort": 7000,\n    "skipFiles": [\n        "<node_internals>/**",\n        "C:/Program Files/HBuilderX/plugins/unicloud/**/*.js"\n    ]\n}\n'), E = S('[{"provider":"aliyun","spaceName":"warmly-article","spaceId":"mp-091c24c7-5e19-41de-be9a-d84895de4a2c","clientSecret":"X59wK9ZCQwRk+ud9nk6zMw==","endpoint":"https://api.next.bspapp.com"}]') || [];
+  const b = true, k = "app", T = S([]), P = k, A = S('{\n    "address": [\n        "127.0.0.1",\n        "192.168.36.39",\n        "172.31.64.1"\n    ],\n    "debugPort": 9000,\n    "initialLaunchType": "local",\n    "servePort": 7000,\n    "skipFiles": [\n        "<node_internals>/**",\n        "C:/Program Files/HBuilderX/plugins/unicloud/**/*.js"\n    ]\n}\n'), E = S('[{"provider":"aliyun","spaceName":"warmly-article","spaceId":"mp-091c24c7-5e19-41de-be9a-d84895de4a2c","clientSecret":"X59wK9ZCQwRk+ud9nk6zMw==","endpoint":"https://api.next.bspapp.com"}]') || [];
   let x = "";
   try {
     x = "__UNI__A0E47FA";
