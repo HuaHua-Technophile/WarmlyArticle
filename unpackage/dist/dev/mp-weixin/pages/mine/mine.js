@@ -1,0 +1,1 @@
+"use strict";const e=require("../../common/vendor.js"),r={data(){return{}}};function t(c,a,o,s,i,_){return{}}const n=e._export_sfc(r,[["render",t],["__file","C:/Study/WarmlyArticle/pages/mine/mine.vue"]]);wx.createPage(n);

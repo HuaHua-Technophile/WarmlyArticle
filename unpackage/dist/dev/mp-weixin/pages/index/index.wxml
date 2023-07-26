@@ -1,0 +1,1 @@
+<view class="vw-100 vh-100 d-flex justify-content-center align-items-center bg-body-secondary" data-bs-theme="{{d}}"><view class="">{{a}} {{b}} <button bindtap="{{c}}">暗色</button></view><nav-bar u-i="0f770ccf-0" bind:__l="__l"></nav-bar></view>

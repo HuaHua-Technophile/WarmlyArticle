@@ -1,0 +1,11 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/recommend/recommend",
+    "pages/mine/mine"
+  ],
+  "window": {
+    "navigationStyle": "custom"
+  },
+  "usingComponents": {}
+}
