@@ -4,9 +4,10 @@
     :style="`background:
     linear-gradient(${bgcolor1},${bgcolor2});`"
     :data-bs-theme="theme">
-    <view class="">
-      {{ title }}
-      {{ theme }}
+    <view>
+      <swiper-container class="w-100 mt-5">
+        <swiper-slide v-for="item in 5">轮播图 {{ item }}</swiper-slide>
+      </swiper-container>
     </view>
     <nav-bar></nav-bar>
   </view>
@@ -18,6 +19,5 @@
   //--------------主题色修改------------------
   let store = useThemeStore();
   let { theme, bgcolor1, bgcolor2 } = storeToRefs(store);
-  let title = ref("Hello2334");
 </script>
-<style></style>
+<style lang="scss"></style>
